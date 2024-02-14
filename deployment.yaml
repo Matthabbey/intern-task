@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app.js
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: app.js
+  template:
+    metadata:
+      labels:
+        app: app.js
+    spec:
+      containers:
+      - name: app.js
+        image: matthabbey/helloworld-nodejs:v1
+        ports:
+        - containerPort: 3000
